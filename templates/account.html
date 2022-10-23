@@ -19,7 +19,8 @@
   <h3>My Submissions</h3>
     {% for sub in user.Submissions.all %}
 
-    <a href="{% url 'update-submission' submission.id %}">{{sub.event.name}}</a>
+    <a href="{% url 'update-submission' sub.id %}">{{sub.event.name}}</a>
+ :w
 
     {% endfor %}
 </div>

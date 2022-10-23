@@ -73,4 +73,5 @@ def update_submission(request, pk):
     event = submission.event
     form = SubmissionForm(instance=submission)
     context = {"form": form, "event": event}
+
     return render(request, submit_form.html, context)

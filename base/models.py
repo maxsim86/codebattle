@@ -37,6 +37,3 @@ class Submission(models.Model):
 
     def __str__(self):
         return str(self.event) + "---" + str(self.participant)
-
-
-update name 

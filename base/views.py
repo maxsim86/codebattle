@@ -67,5 +67,10 @@ def project_submission(request, pk):
     return render(request, "submit_form.html", context)
 
 
-
-time view berhenti sehingga 2:29:09
+# add owner authentications
+def update_submission(request, pk):
+    submission = Submission.objects.get(id=pk)
+    event = submission.event
+    form = SubmissionForm(instance=submission)
+    context = {"form": form, "event": event}
+    return render(request, submit_form.html, context)

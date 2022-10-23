@@ -27,7 +27,12 @@ def account_page(request):
 
 def event_page(request, pk):
     event = Event.objects.get(id=pk)
-    context = {"event": event}
+
+    registered = request.user.events.filter(id=event.id).exists()
+    submitted = Submission.objects.filter(
+        participant=request.user, event=event
+    ).exists()
+    context = {"event": event, "submitted": submitted, "registered": registered}
     return render(request, "event.html", context)
 
 
@@ -60,3 +65,10 @@ def project_submission(request, pk):
 
     context = {"event": event, "form": form}
     return render(request, "submit_form.html", context)
+
+
+
+
+
+
+time view berhenti sehingga 2:29:09
